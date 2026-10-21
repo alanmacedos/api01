@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscolaAPI - média final</title>
+</head>
+
+<body>
+
+    <main>
+
+        <div>
+
+            <h2>Insira as notas do aluno</h2>
+
+            <form id="form">
+
+                <label for="nota1"></label>
+                <input id="nota1" type="number" min="0" max="10" step="0.1" value="0" required>
+
+                <label for="nota2"></label>
+                <input id="nota2" type="number" min="0" max="10" step="0.1" value="0" required>
+
+                <label for="nota2"></label>
+                <input id="nota2" type="number" min="0" max="10" step="0.1" value="0" required>
+
+                <button id="submit" type="submit">Processar</button>
+
+            </form>
+
+        </div>
+
+        <div id="finalGrade">
+
+            <h2>Nota Final</h2>
+
+            <h3 id="grade"></h3>
+
+        </div>
+
+    </main>
+    
+    <script type="module" src="./main.js"></script>
+
+</body>
+
+</html>
