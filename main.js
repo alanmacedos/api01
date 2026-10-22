@@ -10,4 +10,6 @@ form.addEventListener("submit", async (event) => {
     const nota3 = document.getElementById("nota3").value;
 
     
+
+    form.reset();
 })

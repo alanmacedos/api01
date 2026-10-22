@@ -15,26 +15,48 @@
 // O sistema também deverá impedir o processamento de notas impossíveis.
 
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(express.json());
 
-function calcularMedia (notas) {
-
-    let media = 0;
-
-    for (let i = 0; i < notas.Length(); i++) {
-        media += notas[i];
-    }
-
-    return media / notas.Length();
-}
-
 app.get('/', (req, res) => {
-  res.json({ mensagem: 'Minha API está funcionando!' });
+  res.sendFile("index.html");
 });
 
 app.listen(PORT, () => {
   console.log(`Servidor em http://localhost:${PORT}`);
 });
+
+app.post("/resultado", (req, res) => {
+  const { nota1, nota2, nota3 } = req.body;
+
+  const media = (nota1 + nota2 + nota3) / 3;
+  let status = null;
+
+  if (media >= 7) {
+    status = "Aprovado";
+  } else if (media >= 5) {
+    status = "Em recuperação";
+  } else {
+    status = "Reprovado";
+  }
+
+  res.json({
+    media: Number(media),
+    status: status,
+  });
+});
+
+// function calcularMedia (notas) {
+
+//     let media = 0;
+
+//     for (let i = 0; i < notas.Length(); i++) {
+//         media += notas[i];
+//     }
+
+//     return media / notas.Length();
+// }
